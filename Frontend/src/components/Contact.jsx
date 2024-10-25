@@ -21,6 +21,7 @@ const Contact = () => {
       method: "POST",
       mode:'cors',
       headers: {
+        "Access-Control-Allow-Origin": "*",
         Accept: "application/json",
         "Content-Type": "application/json",
       },
