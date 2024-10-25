@@ -7,7 +7,16 @@ import Form from "./model/Form.js";
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://portfolio-bcu001.vercel.app",
+      "https://portfolio-bcu001-jaoa.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(bodyParser.json());
 
 mongoose.connect("mongodb://localhost:27017/PortfolioData");
