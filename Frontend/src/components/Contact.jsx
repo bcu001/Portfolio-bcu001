@@ -20,6 +20,7 @@ const Contact = () => {
     // await delay(3); // Simulating network delay
     let r = await fetch("https://portfolio-bcu001.vercel.app/", {
       method: "POST",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
