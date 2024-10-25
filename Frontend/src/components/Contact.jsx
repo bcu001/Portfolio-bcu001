@@ -17,10 +17,11 @@ const Contact = () => {
   };
 
   const onSubmit = async (data) => {
-    // await delay(3); // Simulating network delay
     let r = await fetch("https://portfolio-bcu001.vercel.app", {
       method: "POST",
+      mode:'cors',
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
