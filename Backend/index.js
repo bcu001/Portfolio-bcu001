@@ -37,6 +37,8 @@ app.post("/", async (req, res) => {
     date,
   });
 
+  console.log(req.body);
+
   try {
     await newFormEntry.save();
     console.log("Form data saved to MongoDB");

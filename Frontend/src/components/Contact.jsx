@@ -22,6 +22,7 @@ const Contact = () => {
       method: "POST",
       mode: "no-cors",
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
