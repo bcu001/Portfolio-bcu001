@@ -8,7 +8,10 @@ const app = express();
 const port = 9000;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: "*", // Allow all origins (not recommended for production)
+}));
+
 
 mongoose.connect("mongodb://localhost:27017/PortfolioData")
 
