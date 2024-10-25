@@ -18,7 +18,7 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     // await delay(3); // Simulating network delay
-    let r = await fetch("http://localhost:3000/", {
+    let r = await fetch("https://portfolio-bcu001.vercel.app/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
