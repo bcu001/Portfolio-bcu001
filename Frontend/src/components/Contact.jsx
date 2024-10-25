@@ -18,19 +18,15 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     // await delay(3); // Simulating network delay
-    console.log("submiting started");
-    let r = await fetch("https://portfolio-bcu001.vercel.app/", {
+    let r = await fetch("https://portfolio-bcu001.vercel.app", {
       method: "POST",
-      mode: "no-cors",
       headers: {
-        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
     let res = await r.text();
     console.log("response: ", res);
-    console.log("Submiting ended");
   };
   return (
     <>

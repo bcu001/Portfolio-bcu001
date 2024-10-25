@@ -3,27 +3,17 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import Form from "./model/Form.js";
+import connectDB from "./db/connect.js";
 
 const app = express();
 const port = 9000;
 
 app.use(bodyParser.json());
-// app.use(
-//   cors({
-//     origin: [
-//       "https://portfolio-bcu001.vercel.app",
-//       `http://localhost:${port}`,
-//       "http://localhost:5173",
-//       "https://portfolio-bcu001-jaoa.vercel.app",
-//     ],
-//   })
-// );
-
 app.use(
   cors({
     origin: [
       "https://portfolio-bcu001.vercel.app",
-      "https://portfolio-bcu001.vercel.app",
+      "https://portfolio-bcu001-jaoa.vercel.app/",
       "http://localhost:9000",
       "http://localhost:5173",
     ],
@@ -33,16 +23,7 @@ app.use(
 
 app.options("*", cors()); // Enable CORS for all preflight requests
 
-
-
-mongoose
-  .connect("mongodb://localhost:27017/PortfolioData")
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.error("MongoDB connection error: ", error);
-  });
+await connectDB();
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Backend" });
