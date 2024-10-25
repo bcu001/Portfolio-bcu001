@@ -8,16 +8,32 @@ const app = express();
 const port = 9000;
 
 app.use(bodyParser.json());
+// app.use(
+//   cors({
+//     origin: [
+//       "https://portfolio-bcu001.vercel.app",
+//       `http://localhost:${port}`,
+//       "http://localhost:5173",
+//       "https://portfolio-bcu001-jaoa.vercel.app",
+//     ],
+//   })
+// );
+
 app.use(
   cors({
     origin: [
-      "https://portfolio-bcu001.vercel.app/",
-      `http://localhost:${port}/`,
-      "http://localhost:5173/",
-      "https://portfolio-bcu001-jaoa.vercel.app/",
+      "https://portfolio-bcu001.vercel.app",
+      "https://portfolio-bcu001.vercel.app",
+      "http://localhost:9000",
+      "http://localhost:5173",
     ],
+    methods: ["GET", "POST"],
   })
 );
+
+app.options("*", cors()); // Enable CORS for all preflight requests
+
+
 
 mongoose
   .connect("mongodb://localhost:27017/PortfolioData")
@@ -33,6 +49,17 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", async (req, res) => {
+  let rawData = "";
+  req.on("data", (chuck) => {
+    rawData += chuck;
+  });
+  req.on("end", () => {
+    console.log("Raw Body Data", rawData);
+  });
+
+  console.log(req.body);
+
+  //code
   const { name, email, comment } = req.body;
   const now = new Date();
   const date = now.toString();
@@ -43,8 +70,6 @@ app.post("/", async (req, res) => {
     comment,
     date,
   });
-
-  console.log(req.body);
 
   try {
     await newFormEntry.save();
