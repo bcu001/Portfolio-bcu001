@@ -19,7 +19,14 @@ app.use(
   })
 );
 
-mongoose.connect("mongodb://localhost:27017/PortfolioData");
+mongoose
+  .connect("mongodb://localhost:27017/PortfolioData")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("MongoDB connection error: ", error);
+  });
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Backend" });
