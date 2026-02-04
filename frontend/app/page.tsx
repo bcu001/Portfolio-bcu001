@@ -1,9 +1,10 @@
+import DevWork from "@/components/devWork";
 import CustomBox from "@/components/ui/customBox";
 import { DATA } from "@/lib/data/resume";
 
 export default function Home() {
   return (
-    <main className="border border-red-500 w-full min-h-dvh px-4 pt-6 space-y-10">
+    <main className="border w-full min-h-dvh px-4 pt-6 space-y-10">
       <section>
         <div className="font-bold text-3xl">Hi, I&apos;m Bhuwan</div>
         <div className="text-xl">{DATA.description}</div>
@@ -26,6 +27,7 @@ export default function Home() {
           <CustomBox text="My projects" />
         </div>
       </section>
+      <DevWork/>
     </main>
   );
 }
