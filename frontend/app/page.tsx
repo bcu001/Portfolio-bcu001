@@ -6,6 +6,7 @@ import { AnimationConfig } from "@/config/animationConfig";
 import ProjectCard from "@/components/cards/ProjectCard";
 import Link from "next/link";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
             <div className="flex flex-1 flex-col space-y-1.5">
               <BlurFade
                 delay={AnimationConfig.delay}
+                offset={150}
+                direction="right"
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
               >
                 Hi, I&apos;m Bhuwan
@@ -24,21 +27,42 @@ export default function Home() {
               <BlurFade
                 className="max-w-150 font-bold text-xl"
                 delay={AnimationConfig.delay}
+                offset={150}
+                direction="right"
               >
                 Full Stack Developer
               </BlurFade>
             </div>
-            {/* <div>
-              <Image />
-            </div> */}
+            <div>
+              <BlurFade
+                delay={AnimationConfig.delay}
+                offset={150}
+                direction="left"
+              >
+                <div
+                  className={`relative w-50 h-50 rounded-full overflow-hidden`}
+                >
+                  <Image
+                    src={DATA.img}
+                    alt={DATA.name}
+                    fill={true}
+                    objectFit="cover"
+                  />
+                </div>
+              </BlurFade>
+            </div>
           </div>
         </div>
       </section>
       <section id="about">
-        <BlurFade delay={AnimationConfig.delay}>
+        <BlurFade delay={AnimationConfig.delay} offset={150} direction="right">
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
-        <BlurFade delay={AnimationConfig.delay * 1.4}>
+        <BlurFade
+          delay={AnimationConfig.delay * 1.4}
+          offset={150}
+          direction="right"
+        >
           <div className=" max-w-full text-pretty font-sans text-sm text-muted-foreground ">
             {DATA.summary}
           </div>
@@ -51,9 +75,14 @@ export default function Home() {
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill) => {
+            {DATA.skills.map((skill, idx) => {
               return (
-                <BlurFade key={skill} delay={AnimationConfig.delay}>
+                <BlurFade
+                  key={skill}
+                  delay={AnimationConfig.delay * (1.4 + idx)}
+                  inView={true}
+                  direction="right"
+                >
                   <CustomBox text={skill} />
                 </BlurFade>
               );
@@ -63,7 +92,12 @@ export default function Home() {
       </section>
       <section id="projects">
         <div className="w-full space-y-12 py-12">
-          <BlurFade delay={AnimationConfig.delay}>
+          <BlurFade
+            delay={AnimationConfig.delay}
+            inView={true}
+            offset={150}
+            direction="up"
+          >
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
@@ -72,11 +106,6 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Check out my latest work
                 </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple
-                  websites to complex web applications. Here are a few of my
-                  favorites.
-                </p>
               </div>
             </div>
           </BlurFade>
@@ -86,6 +115,9 @@ export default function Home() {
                 <BlurFade
                   key={project.title}
                   delay={AnimationConfig.delay * 1.2 + idx * 0.05}
+                  inView={true}
+                  offset={100}
+                  direction="up"
                 >
                   <ProjectCard {...project} />
                 </BlurFade>
@@ -97,12 +129,23 @@ export default function Home() {
 
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={AnimationConfig.delay}>
+          <BlurFade
+            delay={AnimationConfig.delay}
+            inView={true}
+            offset={100}
+            direction="up"
+          >
             <h2 className="text-xl font-bold">Education</h2>
           </BlurFade>
           {DATA.education.map((edu, idx) => {
             return (
-              <BlurFade key={idx} delay={AnimationConfig.delay}>
+              <BlurFade
+                inView={true}
+                key={idx}
+                delay={AnimationConfig.delay}
+                offset={100}
+                direction="up"
+              >
                 <EducationCard {...edu} />
               </BlurFade>
             );
@@ -112,7 +155,12 @@ export default function Home() {
 
       <section id="contact">
         <div className="grid w-full items-center justify-center gap-4 px-4 py-12 text-center md:px-6">
-          <BlurFade delay={AnimationConfig.delay}>
+          <BlurFade
+            delay={AnimationConfig.delay}
+            inView={true}
+            offset={100}
+            direction="up"
+          >
             <div className="space-y-3">
               <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
                 Contact

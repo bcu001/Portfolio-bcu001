@@ -5,7 +5,7 @@ import { ICON } from "@/lib/img/img";
 export const DATA = {
   name: "Bhuwan Chandra Upadhyay",
   url: "https://github.com/bcu001",
-  img: null,
+  img: "https://res.cloudinary.com/dp7nw5npc/image/upload/v1770285831/dark_hqvtki.png",
   location: "Delhi, India",
   locationLink: "https://www.google.com/maps/place/delhi",
   description: "Full Stack Developer",
