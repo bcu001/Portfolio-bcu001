@@ -23,6 +23,7 @@ export const DATA = {
     "Github",
     "Shadcn UI",
     "Magic UI",
+    "Vercel"
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -93,7 +94,7 @@ export const DATA = {
           icon: ICON.github
         },
       ],
-      image: "https://pixabay.com/images/download/fietzfotos-landscape-10071298_1920.jpg",
+      image: "https://res.cloudinary.com/dp7nw5npc/image/upload/v1770295788/Screenshot_from_2026-02-05_18-16-13_yqxsil.png",
       // video: String,
     },
     {
@@ -123,7 +124,7 @@ export const DATA = {
           icon: ICON.github
         },
       ],
-      image: "https://pixabay.com/images/download/fietzfotos-landscape-10071298_1920.jpg",
+      image: "https://res.cloudinary.com/dp7nw5npc/image/upload/v1770295788/Screenshot_from_2026-02-05_18-17-37_gyeage.png",
       // video: String,
     },
     {
@@ -148,7 +149,7 @@ export const DATA = {
           icon: ICON.github
         },
       ],
-      image: "https://pixabay.com/images/download/fietzfotos-landscape-10071298_1920.jpg",
+      image: "https://res.cloudinary.com/dp7nw5npc/image/upload/v1770295787/Screenshot_from_2026-02-05_18-18-27_czeqsr.png",
       // video: String,
     },
     {
@@ -175,7 +176,7 @@ export const DATA = {
           icon: ICON.github
         },
       ],
-      image: "https://pixabay.com/images/download/fietzfotos-landscape-10071298_1920.jpg",
+      image: "https://res.cloudinary.com/dp7nw5npc/image/upload/v1770295788/Screenshot_from_2026-02-05_18-19-12_ietfxx.png",
       // video: String,
     },
   ],
