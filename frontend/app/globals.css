@@ -128,3 +128,12 @@
     animation: none;
     mix-blend-mode: normal;
 }
+
+*{
+  cursor:none!important;
+}
+
+::selection {
+  background-color: #05df72; 
+  color: #000;           
+}
