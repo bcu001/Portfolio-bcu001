@@ -23,18 +23,18 @@ const ProjectCard = (props: projectProps) => {
   return (
     <div className="border rounded-md overflow-hidden">
       <Link href={props.href} target="_blank">
-      <div className="w-full h-38 bg-white relative">
-        <Image
-          src={props.image}
-          alt={props.title}
-          fill={true}
-          objectFit="cover"
-        />
-      </div>
+        <div className="w-full h-38 bg-white relative">
+          <Image
+            src={props.image}
+            alt={props.title}
+            fill={true}
+            className="object-cover"
+          />
+        </div>
       </Link>
       <div className="p-2 space-y-2">
         <div className="font-bold text-xl">{props.title}</div>
-        <div className="text-sm h-30 overflow-hidden">{props.description}</div>
+        <div className="text-sm h-30 overflow-hidden text-muted-foreground">{props.description}</div>
 
         <div className="flex flex-wrap gap-1">
           {props.technologies.map((tech) => (
@@ -55,7 +55,12 @@ const ProjectCard = (props: projectProps) => {
                 target="_blank"
               >
                 <div className="relative w-5 h-5">
-                  <Image src={l.icon} alt={l.title} fill />
+                  <Image
+                    src={l.icon}
+                    alt={l.title}
+                    fill
+                    className="object-cover"
+                  />
                   {/* {console.log(l.icon.src)} */}
                 </div>
                 <div className="capitalize">{l.title}</div>

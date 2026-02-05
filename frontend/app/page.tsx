@@ -7,6 +7,8 @@ import ProjectCard from "@/components/cards/ProjectCard";
 import Link from "next/link";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
 import Image from "next/image";
+import CustomBlur from "@/components/CustomBlur";
+import SectionBadge from "@/components/SectionBadge";
 
 export default function Home() {
   return (
@@ -16,29 +18,15 @@ export default function Home() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="flex justify-between gap-2">
             <div className="flex flex-1 flex-col space-y-1.5">
-              <BlurFade
-                delay={AnimationConfig.delay}
-                offset={150}
-                direction="right"
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-              >
+              <CustomBlur className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Hi, I&apos;m Bhuwan
-              </BlurFade>
-              <BlurFade
-                className="max-w-150 font-bold text-xl"
-                delay={AnimationConfig.delay}
-                offset={150}
-                direction="right"
-              >
+              </CustomBlur>
+              <CustomBlur className="max-w-150 font-bold text-xl">
                 Full Stack Developer
-              </BlurFade>
+              </CustomBlur>
             </div>
             <div>
-              <BlurFade
-                delay={AnimationConfig.delay}
-                offset={150}
-                direction="left"
-              >
+              <CustomBlur direction="left">
                 <div
                   className={`relative w-50 h-50 rounded-full overflow-hidden`}
                 >
@@ -46,42 +34,38 @@ export default function Home() {
                     src={DATA.img}
                     alt={DATA.name}
                     fill={true}
-                    objectFit="cover"
+                    className="object-cover"
                   />
                 </div>
-              </BlurFade>
+              </CustomBlur>
             </div>
           </div>
         </div>
       </section>
       <section id="about">
-        <BlurFade delay={AnimationConfig.delay} offset={150} direction="right">
+        <CustomBlur>
           <h2 className="text-xl font-bold">About</h2>
-        </BlurFade>
-        <BlurFade
-          delay={AnimationConfig.delay * 1.4}
-          offset={150}
-          direction="right"
-        >
-          <div className=" max-w-full text-pretty font-sans text-sm text-muted-foreground ">
+        </CustomBlur>
+        <CustomBlur delay={AnimationConfig.delay * 1.4}>
+          <div className=" max-w-full text-sm  text-muted-foreground">
             {DATA.summary}
           </div>
-        </BlurFade>
+        </CustomBlur>
       </section>
 
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={AnimationConfig.delay}>
+          <CustomBlur>
             <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
+          </CustomBlur>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, idx) => {
               return (
                 <BlurFade
                   key={skill}
                   delay={AnimationConfig.delay * (1.4 + idx)}
-                  inView={true}
                   direction="right"
+                  offset={6}
                 >
                   <CustomBox text={skill} />
                 </BlurFade>
@@ -92,35 +76,26 @@ export default function Home() {
       </section>
       <section id="projects">
         <div className="w-full space-y-12 py-12">
-          <BlurFade
-            delay={AnimationConfig.delay}
-            inView={true}
-            offset={150}
-            direction="up"
-          >
+          <CustomBlur direction="up">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
-                  My Projects
-                </div>
+                <SectionBadge text="My Projects" />
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Check out my latest work
                 </h2>
               </div>
             </div>
-          </BlurFade>
+          </CustomBlur>
           <div className="mx-auto grid max-w-200 grid-cols-1 gap-3 sm:grid-cols-2">
             {DATA.projects.map((project, idx) => {
               return (
-                <BlurFade
+                <CustomBlur
                   key={project.title}
-                  delay={AnimationConfig.delay * 1.2 + idx * 0.05}
-                  inView={true}
-                  offset={100}
+                  delay={AnimationConfig.delay * (1.4 + idx)}
                   direction="up"
                 >
                   <ProjectCard {...project} />
-                </BlurFade>
+                </CustomBlur>
               );
             })}
           </div>
@@ -129,25 +104,14 @@ export default function Home() {
 
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade
-            delay={AnimationConfig.delay}
-            inView={true}
-            offset={100}
-            direction="up"
-          >
+          <CustomBlur direction="up">
             <h2 className="text-xl font-bold">Education</h2>
-          </BlurFade>
+          </CustomBlur>
           {DATA.education.map((edu, idx) => {
             return (
-              <BlurFade
-                inView={true}
-                key={idx}
-                delay={AnimationConfig.delay}
-                offset={100}
-                direction="up"
-              >
+              <CustomBlur key={idx} direction="up">
                 <EducationCard {...edu} />
-              </BlurFade>
+              </CustomBlur>
             );
           })}
         </div>
@@ -155,16 +119,9 @@ export default function Home() {
 
       <section id="contact">
         <div className="grid w-full items-center justify-center gap-4 px-4 py-12 text-center md:px-6">
-          <BlurFade
-            delay={AnimationConfig.delay}
-            inView={true}
-            offset={100}
-            direction="up"
-          >
+          <CustomBlur direction="up">
             <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background">
-                Contact
-              </div>
+              <SectionBadge text="Contact" />
               <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
                 Get in Touch
               </h2>
@@ -181,7 +138,7 @@ export default function Home() {
                 soliciting.
               </p>
             </div>
-          </BlurFade>
+          </CustomBlur>
         </div>
       </section>
     </main>
