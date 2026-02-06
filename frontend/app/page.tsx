@@ -21,12 +21,12 @@ export default function Home() {
               <CustomBlur className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Hi, I&apos;m Bhuwan
               </CustomBlur>
-              <CustomBlur className="max-w-150 font-bold text-xl">
+              <CustomBlur  className="max-w-150 font-bold text-xl">
                 Full Stack Developer
               </CustomBlur>
             </div>
             <div>
-              <CustomBlur direction="left">
+              <BlurFade delay={AnimationConfig.delay} offset={150} direction={"left"} >
                 <div
                   className={`relative w-25 h-25 md:w-35 md:h-35 lg:w-50 lg:h-50 rounded-full overflow-hidden`}
                 >
@@ -37,7 +37,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-              </CustomBlur>
+              </BlurFade>
             </div>
           </div>
         </div>
