@@ -28,7 +28,7 @@ export default function Home() {
             <div>
               <CustomBlur direction="left">
                 <div
-                  className={`relative w-50 h-50 rounded-full overflow-hidden`}
+                  className={`relative w-25 h-25 md:w-35 md:h-35 lg:w-50 lg:h-50 rounded-full overflow-hidden`}
                 >
                   <Image
                     src={DATA.img}
