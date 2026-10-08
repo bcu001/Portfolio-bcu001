@@ -1,5 +1,5 @@
 // Your resume data
-import { CodeIcon, HomeIcon, icons } from "lucide-react";
+import { CodeIcon, HomeIcon } from "lucide-react";
 import { ICON } from "@/lib/img/img";
 
 export const DATA = {
@@ -35,7 +35,7 @@ export const DATA = {
     { href: "#", icon: CodeIcon, label: "Projects" },
   ],
   contact: {
-    email: "", // Add your current email address
+    email: "bhuwan.upadhyay.work@gmail.com", 
     tel: "+918076667001",
     social: {
       GitHub: {
@@ -73,15 +73,13 @@ export const DATA = {
       school: "Indira Gandhi National Open University",
       href: "https://www.ignou.ac.in/",
       degree: "Master of Computer Applications (MCA) — Present",
-      // Previous degree: Bachelor of Computer Applications (BCA), 2025
       schoolImg:
         ICON.ignou
     },
     {
       school: "Indira Gandhi National Open University",
       href: "https://www.ignou.ac.in/",
-      degree: "Master of Computer Applications (BCA) — 2022 - 2025",
-      // Previous degree: Bachelor of Computer Applications (BCA), 2025
+      degree: "Bachelor of Computer Applications (BCA), 2025",
       schoolImg:
         ICON.ignou
     }
