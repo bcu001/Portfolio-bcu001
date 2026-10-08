@@ -13,7 +13,7 @@ const EducationCard = (props: eduProps) => {
     <div className="flex gap-8 items-center">
       <div className="relative w-10 h-10 rounded-full overflow-hidden border">
         <Image
-           className="object-cover"
+           className="object-fit"
           fill
           alt={props.school}
           src={props.schoolImg}

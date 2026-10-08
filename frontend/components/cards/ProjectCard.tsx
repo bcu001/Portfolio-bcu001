@@ -61,7 +61,6 @@ const ProjectCard = (props: projectProps) => {
                     fill
                     className="object-cover"
                   />
-                  {/* {console.log(l.icon.src)} */}
                 </div>
                 <div className="capitalize">{l.title}</div>
               </Link>
